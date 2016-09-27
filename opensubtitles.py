@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import struct, os, click, xmlrpclib, gzip, io
+import struct, os, xmlrpclib, gzip, io
 
 
 url = 'http://api.opensubtitles.org/xml-rpc'
@@ -36,7 +36,6 @@ def get_sub(path):
     server = xmlrpclib.Server(url)
     token = server.LogIn('', '', 'en', 'PyGetSubtitle')['token']
     hash = get_hash(path)
-    print
     query = {
         'moviehash': hash,
         'sublanguageid': 'eng'
